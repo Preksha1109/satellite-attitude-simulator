@@ -24,6 +24,8 @@
 #include <cmath>
 #include <iomanip>
 
+using namespace attitude;
+
 const double DEG2RAD = M_PI / 180.0;
 const double RAD2DEG = 180.0 / M_PI;
 
@@ -166,8 +168,8 @@ int main() {
         // ====================================================================
         // PROPAGATE STATE
         // ====================================================================
-        Derivative deriv = attitude::derivative(state, tau, satellite);
-        state = attitude::step(state, deriv, dt, integration_method, satellite);
+        Derivative deriv = derivative(state, tau, satellite);
+        state = step(state, deriv, dt, integration_method, satellite);
         
         // ====================================================================
         // LOGGING (every 10 Hz, write every 100 ms)
